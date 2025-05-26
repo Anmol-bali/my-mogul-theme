@@ -1,0 +1,44 @@
+---
+cart: true
+---
+
+{{#partial "page"}}
+
+<article class="page-container page-narrow">
+
+  {{> components/breadcrumbs}}
+
+  <div class="page-header">
+    <h1 class="page-title">{{page.title}}</h1>
+  </div>
+
+  {{{region name="page_above_content"}}}
+
+  <div class="page-content rte">
+    {{#if page.content}}
+      {{#replace '%%Syndicate%%' page.content}}
+        {{> components/page/rss-feed}}
+      {{else}}
+        {{{page.content}}}
+      {{/replace}}
+    {{/if}}
+
+    {{#if page.feed}}
+      <ul>
+        {{#each page.feed}}
+          <li>
+            <h6><a href="{{url}}" target="_blank">{{title}}</a></h6>
+            <p>{{{content}}}</p>
+          </li>
+        {{/each}}
+      </ul>
+    {{/if}}
+  </div>
+
+  {{{region name="page_below_content"}}}
+  
+</article>
+
+{{/partial}}
+
+{{> layout/base}}

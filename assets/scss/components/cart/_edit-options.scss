@@ -1,0 +1,38 @@
+.cart-options-modal {
+  max-width: rem(800);
+
+  .modal-content {
+    text-align: center;
+  }
+
+  .reconfigure-errors {
+    display: none;
+  }
+
+  .modal-body {
+    padding-top: rem(40);
+  }
+}
+
+.cart-edit-options {
+  @include custom-ease;
+  padding: rem(80) rem(40);
+  opacity: 0;
+
+  &-visible {
+    opacity: 1;
+  }
+
+  + .loading {
+    background: {
+      color: transparent;
+      image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' width='50' height='50' fill='#{$background-color}'%3E %3Cpath opacity='.25' d='M16 0 A16 16 0 0 0 16 32 A16 16 0 0 0 16 0 M16 4 A12 12 0 0 1 16 28 A12 12 0 0 1 16 4'/%3E %3Cpath d='M16 0 A16 16 0 0 1 32 16 L28 16 A12 12 0 0 0 16 4z'%3E %3CanimateTransform attributeName='transform' type='rotate' from='0 16 16' to='360 16 16' dur='0.8s' repeatCount='indefinite' /%3E %3C/path%3E %3C/svg%3E ");
+    }
+
+    opacity: 1;
+  }
+
+  .swatch-value {
+    display: none;
+  }
+}

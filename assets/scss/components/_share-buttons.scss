@@ -1,0 +1,66 @@
+.share-buttons-nav {
+  display: flex;
+  flex: 1 0 auto;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding-top: $gutter-mobile * 2;
+  border-top: 1px solid $border-color;
+
+  .share-heading {
+    @extend %heading-text-treatment;
+    margin-right: rem(15);
+    font-size: rem(22);
+
+    @include breakpoint(xs) {
+      width: 30%;
+    }
+  }
+
+  .share-buttons {
+    @include breakpoint(xs) {
+      width: 70%;
+    }
+  }
+
+  .social-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: rem(30);
+    height: rem(30);
+    background-color: contrast($nav-color, 38%);
+
+    &:hover {
+      background-color: $accent-color;
+    }
+
+    &.facebook-like {
+      background: none;
+
+      > div {
+        margin-left: $gutter-half;
+      }
+    }
+
+    a {
+      display: block;
+      width: rem(18);
+      height: rem(18);
+      color: $white;
+    }
+
+    @include breakpoint(s) {
+      margin-top: $gutter-mobile / 2;
+      margin-bottom: $gutter-mobile / 2;
+    }
+  }
+
+  @include breakpoint(s) {
+    padding: $gutter-mobile $gutter-mobile 0;
+  }
+
+  @include breakpoint(xs) {
+    padding: $gutter-half $gutter-half 0;
+  }
+}

@@ -1,0 +1,277 @@
+// Toggle
+$minicart-width: rem(450);
+
+body.minicart-open {
+  @extend %overflow-hidden;
+}
+
+.minicart-toggle {
+  @extend %remove-button-style;
+  position: relative;
+  display: flex;
+  align-items: center;
+
+  @include breakpoint(ms) {
+    padding: 0;
+  }
+}
+
+.minicart-toggle-label {
+  @include basic-ease;
+  position: absolute;
+  top: 0;
+  right: rem(-5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: rem(21);
+  min-height: rem(21);
+  padding: rem(2);
+  background-color: $accent-color;
+  border-radius: 50%;
+
+  .minicart-toggle-empty & {
+    display: none;
+  }
+
+  .minicart-toggle:hover & {
+    transform: scale(1.5);
+  }
+}
+
+.minicart-icon {
+  @include basic-ease;
+  width: rem(31);
+  height: rem(32);
+  fill: $nav-color;
+  vertical-align: middle;
+
+  @include breakpoint(ms) {
+    margin-right: rem(5);
+  }
+
+  .minicart-toggle:hover & {
+    fill: $accent-color;
+  }
+}
+
+.minicart-count {
+  @extend %nav-text-treatment;
+  letter-spacing: normal;
+  color: $background-color;
+
+  .minicart-toggle:hover & {
+    color: $background-color;
+  }
+}
+
+// Minicart
+.minicart-overlay {
+  @include custom-ease;
+  display: none;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  z-index: index($elements, minicart);
+  width: 100%;
+  max-width: 100%;
+  padding: 0;
+  background-color: rgba($heading-color, 0.9);
+
+  &.animating,
+  &.visible {
+    display: block;
+    opacity: 1;
+  }
+}
+
+.minicart {
+  @include custom-ease;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  float: right;
+  width: $minicart-width;
+  height: 100%;
+  max-width: 100%;
+  padding: rem(30) rem(25) rem(40);
+  background-color: $background-color;
+  overflow-y: auto;
+
+  &-is-empty {
+    justify-content: flex-start;
+  }
+
+  .animating-in &,
+  .animating-out & {
+    transform: translateX(#{$minicart-width});
+  }
+
+  .visible & {
+    transform: translateX(0);
+  }
+}
+
+.minicart-close {
+  @extend %remove-button-style;
+  display: flex;
+  align-items: center;
+  float: right;
+}
+
+.minicart-close-text {
+  @extend %nav-text-treatment;
+  margin-right: rem(10);
+
+  .minicart-close:hover & {
+    color: $accent-color;
+  }
+}
+
+.minicart-close-icon {
+  @include basic-ease;
+  width: rem(15);
+  height: rem(15);
+  fill: $nav-color;
+
+  .minicart-close:hover & {
+    fill: $accent-color;
+  }
+}
+
+.minicart-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.minicart-title {
+  @extend %heading-text-treatment;
+  margin: 0;
+  font-size: rem(22);
+}
+
+.minicart-empty {
+  padding-top: rem(25);
+}
+
+// Content
+.minicart-items {
+  flex-grow: 1;
+  margin-top: rem(25);
+  margin-bottom: rem(25);
+  overflow-y: auto;
+}
+
+.minicart-item {
+  position: relative;
+  display: flex;
+  padding-top: rem(25);
+  padding-bottom: rem(25);
+  border-bottom: 1px solid $border-light-color;
+}
+
+.minicart-item-link {
+  flex-shrink: 0;
+  width: rem(100);
+  height: rem(100);
+  border: none;
+  overflow: hidden;
+}
+
+.minicart-item-image {
+  @include basic-ease;
+  width: 100%;
+  height: 100%;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.minicart-item-info {
+  padding-left: rem(20);
+  width: 100%;
+
+  .form-field-title {
+    display: none;
+  }
+
+  .form-field-quantity-control  {
+    width: rem(135);
+    margin-top: rem(10);
+    margin-bottom: rem(5);
+  }
+}
+
+.minicart-item-title {
+  @extend %heading-text-treatment;
+  margin-top: rem(10);
+  margin-bottom: rem(10);
+  font-size: rem(16);
+  letter-spacing: normal;
+  text-transform: none;
+}
+
+.minicart-item-details {
+  margin-bottom: rem(10);
+  font-size: rem(14);
+}
+
+.minicart-item-quantity-price {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: rem(10);
+}
+
+.minicart-item-price {
+  color: $nav-color;
+  font-size: rem(16);
+  font-weight: 400;
+  letter-spacing: em(1);
+
+  &-discounted {
+    color: $accent-color;
+  }
+}
+
+.minicart-item-price-regular {
+  .minicart-item-price-discounted & {
+    color: $nav-color;
+    text-decoration: line-through;
+  }
+}
+
+// Footer
+.minicart-footer {
+  padding-top: rem(25);
+}
+
+.button-minicart-viewcart {
+  margin-bottom: $gutter-half;
+}
+
+.minicart-footer-row {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: rem(25);
+}
+
+.minicart-footer-label {
+  @extend %heading-text-treatment;
+  font-size: rem(16);
+}
+
+.minicart-footer-price {
+  font-family: $primary-font;
+  font-size: rem(23);
+  font-weight: normal;
+}

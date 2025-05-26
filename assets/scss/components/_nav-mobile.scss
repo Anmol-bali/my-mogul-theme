@@ -1,0 +1,90 @@
+.nav-mobile-toggle {
+  @extend %remove-button-style;
+  position: relative;
+  top: rem(3);
+  flex-basis: 7%;
+  text-align: left;
+
+  @include breakpoint(tablet-up) {
+    display: none;
+  }
+
+  @include breakpoint(s-up) {
+    padding-right: $gutter-half;
+  }
+
+  @include breakpoint(ms) {
+    flex-basis: auto;
+    padding-left: 0;
+  }
+}
+
+.nav-mobile-icon {
+  width: rem(23);
+  height: rem(15);
+  fill: $nav-color;
+}
+
+@include breakpoint(ms) {
+  .nav-mobile-close {
+    margin-bottom: $gutter-mobile;
+  }
+
+  .nav-menu-item-top-row,
+  .nav-submenu-item-top-row {
+    width: auto;
+  }
+
+  .nav-menu-item-link,
+  .nav-submenu-item-link {
+    font-size: rem(16);
+    color: $background-color;
+
+    &:hover {
+      color: $background-color;
+      opacity: 0.8;
+    }
+  }
+
+  .nav-menu-item-top-row,
+  .nav-submenu-item-top-row {
+    .submenu-toggle {
+      border: 1px solid rgba($background-color, 0.2);
+      box-sizing: border-box;
+    }
+  }
+
+  .nav-menu-item-row-active,
+  [data-menu-item-breadcrumb] {
+    .nav-menu-item-link,
+    .nav-submenu-item-link {
+      color: $background-color;
+    }
+
+    .submenu-toggle {
+      background: transparent;
+    }
+  }
+
+  .submenu-toggle {
+    color: $background-color;
+
+    .nav-menu-item-row-active & {
+      color: $accent-color;
+      background: $background-color;
+    }
+  }
+
+  .submenu-toggle-icon {
+    fill: currentColor;
+  }
+
+  .nav-submenu {
+    margin-left: 0;
+    padding-left: rem(10);
+  }
+
+  .nav-submenu-item {
+    width: 100%;
+  }
+}

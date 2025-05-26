@@ -1,0 +1,52 @@
+.account-product-wrapper {
+  .account-product-item {
+    display: inline-block;
+    position: relative;
+    width: 24%;
+    margin-bottom: $gutter * 2;
+    padding: $gutter / 2;
+    vertical-align: top;
+
+    &:first-child {
+      margin-left: -$gutter / 2;
+    }
+
+    @include breakpoint(m) {
+      width: 30%;
+    }
+
+    @include breakpoint(s) {
+      width: 48%;
+
+      &:only-of-type {
+        width: 100%;
+      }
+    }
+  }
+
+  .account-product-item-thumbnail a {
+    border-bottom: none;
+  }
+
+  .account-product-item-title {
+    margin-top: 0;
+    margin-bottom: 0;
+    line-height: 1;
+
+    a {
+      @extend %heading-text-treatment;
+      font-size: rem(15);
+      letter-spacing: normal;
+      text-transform: none;
+      border-bottom: none;
+
+      &:hover {
+        color: $accent-color;
+      }
+    }
+  }
+
+  .account-product-item-brand {
+    display: none;
+  }
+}

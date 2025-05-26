@@ -1,0 +1,91 @@
+$local-toggle-color: #000;
+
+.refine-icon {
+  @extend %remove-button-style;
+  display: inline-block;
+  margin-left: 0;
+  padding-left: 0;
+  padding-right: $gutter-half;
+  color: $local-toggle-color;
+  border-right: 1px solid $border-color;
+  cursor: pointer;
+
+  &-active {
+    color: $accent-color;
+  }
+
+  @include breakpoint(tablet-up) {
+    display: none;
+  }
+}
+
+.refine-toggle-icon {
+  width: rem(14);
+  height: rem(14);
+  fill: currentColor;
+}
+
+.refine-toggle-label {
+  padding-left: rem(10);
+  line-height: 1.35;
+  vertical-align: bottom;
+}
+
+.mobile-category-filters {
+  display: none;
+
+  &.animating,
+  &.visible {
+    display: block;
+    width: 100%;
+
+    @include breakpoint(tablet-up) {
+      display: none;
+    }
+  }
+
+  &.animating {
+    opacity: 0;
+  }
+
+  &.visible {
+    opacity: 1;
+
+    @include breakpoint(tablet) {
+      ~ .filter-sort {
+        width: 100%;
+        padding-top: $gutter;
+        justify-content: flex-start;
+      }
+    }
+  }
+}
+
+.category-page-header {
+  @include breakpoint(s) {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
+
+.filter-range .form-field-control {
+  @include breakpoint(ms) {
+    width: rem(92);
+  }
+}
+
+.filter-sort {
+  @include breakpoint(s) {
+    padding-top: $gutter;
+  }
+}
+
+.mobile-sort-divider {
+  height: 0;
+
+  @include breakpoint(s) {
+    width: 100%;
+    height: rem(1);
+    margin: $gutter 0 rem(5);
+  }
+}

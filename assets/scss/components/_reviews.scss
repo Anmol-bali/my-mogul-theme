@@ -1,0 +1,61 @@
+// Submission Modal
+.review-modal-container {
+  display: none;
+}
+
+// Rating Stars (clickable)
+.input-stars {
+  position: relative;
+  display: inline-block;
+
+  &.form-field-error {
+    padding-bottom: rem(20);
+  }
+
+  .star {
+    float: right;
+    width: rem(20);
+    height: rem(20);
+    cursor: pointer;
+    fill: rgba($body-color, 0.3);
+
+    &:hover,
+    &:hover ~ .star svg {
+      fill: $accent-color;
+    }
+  }
+
+  > input:checked {
+    ~ label svg {
+      fill: $accent-color;
+    }
+  }
+
+  .form-inline-message {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    white-space: nowrap;
+
+    + .form-inline-message { display: none; }
+  }
+}
+
+// Rating Stars (readonly)
+.rating-stars,
+.rating-stars-readonly {
+  display: inline-block;
+
+  .rating-star {
+    width: rem(16);
+    height: rem(16);
+  }
+
+  .rating-star-empty {
+    fill: rgba($body-color, 0.3);
+  }
+
+  .rating-star-full {
+    fill: $accent-color;
+  }
+}

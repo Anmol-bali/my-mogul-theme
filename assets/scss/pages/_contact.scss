@@ -1,0 +1,28 @@
+/* Contact Overrides */
+
+.page_contact_form {
+  .page-container {
+    @include breakpoint(xs) {
+      padding: 0;
+    }
+  }
+}
+
+.button-contact-submit {
+  color: $primary-button-color;
+  background-color: $primary-button-background-color;
+
+  &:hover {
+    color: $primary-button-color-hover;
+    background-color: $primary-button-background-color-hover;
+  }
+}
+
+#form-contact-us .g-recaptcha {
+  margin-top: $gutter;
+
+  @include breakpoint(xs) {
+    transform: scale(0.90);
+    transform-origin: 0 0;
+  }
+}

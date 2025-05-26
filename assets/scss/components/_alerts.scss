@@ -1,0 +1,56 @@
+.alert {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: $gutter-double;
+  margin: $gutter-half 0;
+  padding: $gutter-mobile;
+  font-size: rem(16);
+  font-weight: 700;
+  text-align: center;
+  color: $heading-color;
+
+  &-error {
+    background-color: $alert-error;
+  }
+
+  &-success {
+    background-color: $alert-success;
+  }
+
+  &-info {
+    background-color: $alert-info;
+  }
+
+  &:first-child {
+    margin-top: 0;
+  }
+
+  &.dismissed {
+    display: none;
+  }
+
+  &.hidden {
+    display: none;
+  }
+}
+
+.alert-dismiss {
+  position: absolute;
+  right: $gutter-mobile/2;
+  cursor: pointer;
+  border-bottom: none;
+}
+
+.alert-close-icon {
+  @include basic-ease;
+  width: rem(15);
+  height: rem(15);
+  fill: $nav-color;
+
+  .alert-close:hover & {
+    fill: $accent-color;
+  }
+}

@@ -1,0 +1,33 @@
+.brands-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+  .brand-item {
+    display: flex;
+    justify-content: center;
+    width: 24%;
+    margin-bottom: $gutter;
+
+    @include breakpoint(s) {
+      width: 30%;
+    }
+
+    @include breakpoint(xs) {
+      width: 48%;
+    }
+  }
+
+  .brand-link {
+    @extend %heading-text-treatment;
+    font-size: rem(20);
+    letter-spacing: normal;
+    text-align: center;
+    text-transform: none;
+    border: none;
+
+    &:hover {
+      color: $accent-color;
+    }
+  }
+}

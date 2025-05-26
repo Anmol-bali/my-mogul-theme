@@ -1,0 +1,71 @@
+@mixin breakpoint($point) {
+  @if $point == xl {
+    @include media($min: 1440px) { @content; }
+  } @else if $point == l {
+    @include media($max: 1440px) { @content; }
+  } @else if $point == l-up {
+    @include media($min: 1024px) { @content; }
+  } @else if $point == m {
+    @include media($max: 1024px) { @content; }
+  } @else if $point == ms {
+    @include media($max: 960px) { @content; }
+  } @else if $point == tablet-up {
+    @include media($min: 960px) { @content; }
+  } @else if $point == tablet {
+    @include media($max: 960px, $min: 768px) { @content; }
+  } @else if $point == s-up {
+    @include media($min: 768px) { @content; }
+  } @else if $point == s {
+    @include media($max: 768px) { @content; }
+  } @else if $point == xs-up {
+    @include media($min: 500px) { @content; }
+  } @else if $point == xs {
+    @include media($max: 500px) { @content; }
+  }
+}
+
+@mixin custom-ease($duration: 0.25s) {
+  transition: all $duration $custom-ease-transition;
+}
+
+@mixin basic-ease($duration: 0.1s) {
+  transition: all $duration ease;
+}
+
+@mixin height-transition($duration: 0.25s) {
+  transition: max-height $duration $custom-ease-transition,
+              padding-bottom $duration $custom-ease-transition,
+              opacity $duration $custom-ease-transition,
+              transform $duration $custom-ease-transition;
+}
+
+// Maintain Aspect Ratio
+@mixin maintain-ratio($ratio: 1 1) {
+  @if length($ratio) < 2 or length($ratio) > 2 {
+    @warn "$ratio must be a list with two values.";
+  }
+
+  $width: 100%;
+  $height: percentage(nth($ratio, 2) / nth($ratio, 1));
+
+  width: $width;
+  height: 0;
+  padding-bottom: $height;
+}
+
+// Centerer
+@mixin centerer {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+// Coverer
+@mixin coverer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}

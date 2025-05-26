@@ -1,0 +1,137 @@
+$local-gutter: rem(40);
+
+.product-details {
+  width: 50%;
+  padding-top: $gutter-double;
+  padding-left: $gutter;
+  margin-bottom: $gutter-double;
+
+  @include breakpoint(s) {
+    width: 100%;
+    padding: $gutter-mobile;
+    margin-bottom: $gutter-mobile * 2;
+  }
+
+  @include breakpoint(xs) {
+    padding: $gutter-half;
+  }
+}
+
+.product-details .star {
+  width: rem(16);
+  height: rem(16);
+}
+
+.product-details-rating {
+  display: flex;
+  align-items: center;
+
+  .rating-stars {
+    margin-right: rem(15);
+  }
+
+  .rating-star {
+    vertical-align: text-top;
+  }
+
+  .rating-star-full {
+    fill: $heading-color;
+  }
+
+  .rating-star-empty {
+    fill: $body-color;
+  }
+}
+
+.product-details .review-link {
+  border-bottom-color: transparent;
+
+  &:hover {
+    border-bottom-color: $accent-color;
+  }
+}
+
+.product-brand {
+  display: inline-block;
+  margin-top: $gutter-half;
+  font-size: rem(16);
+  font-weight: 400;
+  letter-spacing: em(1, 16);
+  color: $nav-color;
+  border-bottom-color: transparent;
+
+  &:hover {
+    border-bottom-color: $nav-color;
+  }
+}
+
+.product-title {
+  @extend %heading-text-treatment;
+  margin-top: rem(8);
+  font-size: rem(30);
+}
+
+.product-details-price {
+  margin-bottom: $gutter-half;
+  font-size: rem(23);
+
+  .product-price-saved {
+    margin-left: $gutter-half;
+    font-size: rem(16);
+    letter-spacing: em(1, 16);
+    text-transform: uppercase;
+    color: $nav-color;
+  }
+}
+
+.product-details-description-top {
+  padding-top: $local-gutter;
+  padding-bottom: $local-gutter;
+  border-bottom: 1px solid $border-color;
+
+  @include breakpoint(s) {
+    padding-top: $gutter-mobile;
+    padding-bottom: $gutter-mobile;
+  }
+}
+
+.product-description-read-more {
+  display: none;
+  margin-top: $gutter-half;
+}
+
+.product-details-description-short {
+  opacity: 0;
+
+  &.loaded {
+    opacity: 1;
+  }
+
+  &.loaded + .product-description-read-more {
+    display: inline-block;
+  }
+
+  p {
+    margin: 0;
+  }
+}
+
+.product-options {
+  padding-top: $local-gutter;
+
+  @include breakpoint(s) {
+    padding-top: $gutter-mobile;
+  }
+}
+
+.product-details .price-rrp {
+  text-decoration: line-through;
+
+  + .price-value {
+    color: $accent-color;
+  }
+}
+
+.product-extra-details {
+  padding-top: rem(30);
+}

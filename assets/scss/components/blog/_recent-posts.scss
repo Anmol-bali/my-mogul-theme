@@ -1,0 +1,83 @@
+$local-recent-post-gutter: rem(45);
+
+.recent-posts {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+  @include breakpoint(s) {
+    width: calc(100% + #{$gutter-mobile * 2});
+    margin-left: -$gutter-mobile;
+  }
+}
+
+.recent-posts-header {
+  display: block;
+  width: 100%;
+  margin-bottom: $gutter-double;
+  text-align: center;
+
+  .recent-posts-title {
+    margin-bottom: 0;
+  }
+}
+
+.recent-post {
+  width: 48%;
+  margin-bottom: $gutter;
+
+  @include breakpoint(s) {
+    width: 100%;
+    margin-bottom: 0;
+  }
+}
+
+.recent-post-image {
+  @include maintain-ratio(4 3);
+  position: relative;
+  overflow: hidden;
+
+  img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.recent-post-info {
+  width: 100%;
+  padding: $local-recent-post-gutter;
+  background-color: contrast($body-color, 94%);
+}
+
+.recent-post-date {
+  font-size: rem(16);
+  font-weight: normal;
+  letter-spacing: em(1, 16);
+  color: $nav-color;
+}
+
+.recent-post-title {
+  @extend %heading-text-treatment;
+  font-size: rem(26);
+}
+
+.recent-post-summary {
+  line-height: 1.5;
+}
+
+.recent-post-read-more-icon {
+  width: rem(16);
+  height: rem(10);
+  fill: currentColor;
+}
+
+.button-blog-link {
+  width: 100%;
+  margin: $gutter auto;
+  text-align: center;
+
+  @include breakpoint(s) {
+    margin-top: $gutter-double;
+  }
+}

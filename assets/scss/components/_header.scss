@@ -1,0 +1,44 @@
+.main-header {
+  position: relative;
+  height: rem(101);
+  background-color: $background-color;
+  border-bottom: 1px solid $border-color;
+  z-index: index($elements, header);
+
+  @include breakpoint(ms) {
+    height: rem(81);
+  }
+}
+
+.main-header > .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+  padding-right: $gutter;
+  padding-left: $gutter;
+
+  @include breakpoint(ms) {
+    padding-right: $gutter-mobile;
+    padding-left: $gutter-mobile;
+  }
+}
+
+.main-header-tools {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-grow: 1;
+
+  > * {
+    padding-left: 40px;
+
+    @include breakpoint(ms) {
+      padding-left: 0;
+    }
+  }
+
+  @include breakpoint(ms) {
+    flex-grow: 0;
+  }
+}

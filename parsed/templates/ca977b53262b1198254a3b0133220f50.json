@@ -1,0 +1,3 @@
+{
+  "components/amp/styles/footer": ".amp-footer-heading {\n  color: {{color_headings}};\n}\n\n.social-nav {\n  padding-bottom: 60px;\n  margin-bottom: 30px;\n  border-bottom: 1px solid {{color_borders}};\n}\n\n.social-nav-list {\n  list-style: none;\n  text-align: left;\n  margin-left: 0;\n}\n\n.social-link {\n  display: inline-block;\n  margin-right: 15px;\n}\n\n.social-link svg {\n  fill: currentColor;\n}\n"
+}

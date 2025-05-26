@@ -1,0 +1,283 @@
+$local-footer-gutter: rem(40);
+
+.main-footer {
+  position: relative;
+  z-index: index($elements, footer);
+  width: 100%;
+  text-align: center;
+  color: $footer-text-color;
+  background-color: $footer-background-color;
+  overflow: hidden;
+}
+
+// Footer Top
+.footer-top {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-top: $local-footer-gutter;
+  margin-bottom: $local-footer-gutter * 2;
+
+  @include breakpoint(m) {
+    padding-right: $gutter;
+    padding-left: $gutter;
+  }
+}
+
+.footer-lists {
+  display: flex;
+  flex: 1;
+  width: 55%;
+  padding-bottom: $gutter;
+
+  @include breakpoint(m) {
+    width: 100%;
+  }
+
+  @include breakpoint(xs) {
+    justify-content: space-between;
+  }
+}
+
+.footer-list {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-right: $gutter-double;
+
+  @include breakpoint(m) {
+    margin-right: rem(100);
+
+    &:last-of-type {
+      margin-right: 0;
+    }
+  }
+
+  @include breakpoint(xs) {
+    flex-grow: 1;
+    flex-basis: 0;
+    padding-right: $gutter-half;
+    margin-right: 0;
+
+    &:last-of-type {
+      padding-right: 0;
+    }
+  }
+}
+
+.footer-list-item {
+  width: 100%;
+  margin-bottom: rem(10);
+  line-height: 1.62;
+  text-align: left;
+}
+
+.footer-list-link {
+  font-size: rem(16);
+  font-weight: normal;
+  letter-spacing: normal;
+  text-transform: none;
+  color: $footer-text-color;
+  border-bottom: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.footer-newsletter-social {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  @include breakpoint(xs) {
+    max-width: 100%;
+  }
+}
+
+// Subscription Form
+.subscription-form .form-field {
+  position: relative;
+  margin-bottom: rem(15);
+}
+
+.subscription-form-title {
+  margin-bottom: rem(15);
+  font-family: $primary-font;
+  font-size: rem(16);
+  font-weight: normal;
+  letter-spacing: normal;
+  text-align: left;
+  line-height: 1.62;
+  text-transform: uppercase;
+  color: $footer-text-color;
+}
+
+.newsletter-input {
+  width: rem(400);
+
+  @include breakpoint(xs) {
+    max-width: 100%;
+  }
+}
+
+.button-newsletter {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: flex;
+  width: rem(45);
+  height: rem(45);
+  color: $footer-text-color;
+  background-color: contrast($footer-background-color, 27%);
+
+  &:hover {
+    background-color: $accent-color;
+  }
+}
+
+.newsletter-arrow {
+  width: rem(16);
+  height: rem(10);
+  fill: currentColor;
+}
+
+// Newsletter summary
+.newsletter-summary {
+  max-width: rem(400);
+  margin-bottom: $gutter-half;
+  text-align: left;
+}
+
+// Social Icons
+.social-nav {
+  margin-top: rem(15);
+}
+
+.social-link {
+  float: left;
+  margin-right: $gutter/2;
+
+  a {
+    color: $footer-text-color;
+    border-bottom: none;
+
+    &:hover {
+      color: $accent-color;
+    }
+  }
+
+  .icon-social {
+    width: rem(18);
+    height: rem(18);
+    fill: currentColor;
+  }
+}
+
+// Footer Bottom
+.footer-bottom {
+  border-top: 1px solid rgba($border-color, 0.2);
+
+  @include breakpoint(m) {
+    padding-right: $gutter;
+    padding-left: $gutter;
+  }
+}
+
+.footer-credits-copyright {
+  margin-top: $local-footer-gutter;
+  margin-bottom: $local-footer-gutter;
+  font-size: rem(15);
+  color: rgba($footer-text-color, 0.6);
+}
+
+.footer-credits-copyright a {
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  letter-spacing: inherit;
+  text-transform: inherit;
+  color: inherit;
+  border: inherit;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+// Payment Icons
+.footer-payment-icons-list {
+  display: flex;
+  justify-content: center;
+}
+
+.footer-payment-icons {
+  margin-top: $local-footer-gutter;
+  margin-bottom: $local-footer-gutter;
+}
+
+.footer-payment-icon {
+  padding-right: rem(5);
+  padding-left: rem(5);
+  vertical-align: middle;
+  fill: currentColor;
+
+  &.visa {
+    width: rem(35);
+    height: rem(14);
+  }
+
+  &.mastercard {
+    width: rem(39);
+    height: rem(23);
+  }
+
+  &.american-express {
+    width: rem(42);
+    height: rem(14);
+  }
+
+  &.discover {
+    width: rem(51);
+    height: rem(8);
+  }
+
+  &.paypal {
+    width: rem(43);
+    height: rem(12);
+  }
+
+  &.apple-pay {
+    width: rem(40);
+    height: rem(24);
+  }
+}
+
+// Address/Phone
+.footer-contact-address,
+.footer-contact-phone {
+  margin-top: 0;
+  margin-bottom: rem(15);
+  font-style: normal;
+  text-align: left;
+}
+
+// Trust Seals
+table.geotrust-ssl-seal-table {
+  position: relative;
+  left: 50%;
+  margin-top: 0;
+  margin-bottom: 30px;
+  border: 0;
+  transform: translateX(-50%);
+
+  td {
+    padding: 0;
+    border: 0;
+  }
+
+  a {
+    border-bottom: 0;
+  }
+}

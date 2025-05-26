@@ -1,0 +1,11 @@
+.customer-links {
+  @include breakpoint(ms) {
+    .main-header-tools & {
+      display: none;
+    }
+  }
+}
+
+.customer-links a {
+  @extend %nav-text-treatment;
+}

@@ -1,0 +1,139 @@
+/* General */
+
+body {
+  font-family: $primary-font;
+  color: $body-color;
+  font-size: rem(16);
+  line-height: rem(26);
+  background-color: $background-color;
+}
+
+.rte {
+  ul {
+    margin-bottom: $gutter-half;
+    list-style: inside disc;
+  }
+
+  ol {
+    margin-bottom: $gutter-half;
+    list-style: inside decimal;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+/* Links */
+
+a {
+  @include basic-ease;
+  color: $accent-color;
+  text-transform: uppercase;
+  font-size: rem(13);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  line-height: normal;
+  border-bottom: 1px solid $accent-color;
+
+  &:hover {
+    border-bottom-color: transparent;
+  }
+
+  &.reverse-link {
+    border-bottom-color: transparent;
+
+    &:hover {
+      border-bottom-color: $accent-color;
+    }
+  }
+}
+
+/* Basic elements */
+
+hr {
+  background: $border-color;
+}
+
+cite {
+  color: $nav-color;
+}
+
+.icon-sprite {
+  display: none;
+}
+
+/* Container */
+
+.container {
+  max-width: rem(1440);
+  margin: 0 auto;
+
+  // make sure container never borders viewport
+  @include media($max: 1500px) {
+    padding-right: $gutter;
+    padding-left: $gutter;
+  }
+}
+
+// ---------------------------------------------------------------- */
+// Hiding and Showing Content
+// Snippets borrowed from a11yproject:
+// http://a11yproject.com/posts/how-to-hide-content/
+
+%visually-hidden,
+.visually-hidden {
+  // scss-lint:disable ImportantRule
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  overflow: hidden;
+  clip: rect(1px, 1px, 1px, 1px);
+  border: 0 !important;
+}
+
+body:hover .visually-hidden a,
+body:hover .visually-hidden input,
+body:hover .visually-hidden button {
+  // scss-lint:disable ImportantRule
+  display: none !important;
+}
+
+.hidden {
+  display: none;
+  visibility: hidden;
+}
+
+.visible {
+  display: block;
+}
+
+// ---------------------------------------------------------------- */
+
+/* Scroll Locking */
+
+.scroll-locked {
+  overflow: hidden;
+}
+
+.body-locked {
+  @extend .scroll-locked;
+}
+
+.scroll-locked-medium {
+  @include breakpoint(m) {
+    overflow-y: hidden;
+  }
+}
+
+.show-for-sr,
+.sr-only {
+  @extend %visually-hidden;
+}
+
+.disabled {
+  // scss-lint:disable ImportantRule
+  cursor: not-allowed !important;
+}

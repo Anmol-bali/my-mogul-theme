@@ -1,0 +1,22 @@
+.sitemap-container {
+  display: flex;
+  flex-grow: 1;
+
+  @include breakpoint(s) {
+    flex-direction: column;
+  }
+
+  .sitemap-group {
+    flex-direction: column;
+    width: 33.33%;
+    margin: 0 $gutter-half $gutter-half 0;
+
+    &:last-of-type {
+      margin-right: 0;
+    }
+
+    @include breakpoint(s) {
+      width: 100%;
+    }
+  }
+}

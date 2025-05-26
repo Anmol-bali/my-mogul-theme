@@ -1,0 +1,80 @@
+/*
+ * Shipping Calculator
+ */
+.cart-shipping-calculator-toggle {
+  align-self: center;
+  cursor: pointer;
+}
+
+.shipping-calculator {
+  @include custom-ease;
+  height: 0;
+  color: $heading-color;
+  border: 1px solid $border-color;
+  overflow: hidden;
+  opacity: 0;
+
+  .form-label-text {
+    display: block;
+    margin-bottom: $gutter-mobile;
+  }
+
+  .form-select-wrapper,
+  .form-input:not(.input-radio) {
+    position: relative;
+    display: block;
+    margin-bottom: $gutter-mobile;
+    min-width: 0;
+    z-index: 2;
+  }
+
+  .form-select-wrapper {
+    .form-selected-text {
+      display: none;
+    }
+  }
+
+  .form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .form-field {
+    width: calc(50% - #{$gutter-mobile});
+  }
+
+  &.visible {
+    height: auto;
+    padding: $gutter-mobile;
+    margin-bottom: $gutter-half;
+    opacity: 1;
+  }
+}
+
+.shipping-quote-form {
+  ul {
+    width: 100%;
+  }
+
+  .form-field {
+    width: 100%;
+    margin-top: $gutter-mobile;
+    margin-bottom: $gutter-mobile;
+  }
+
+  .input-radio {
+    width: auto;
+    height: auto;
+    margin-right: $gutter-mobile;
+  }
+
+  .form-label-text {
+    display: inline;
+    width: auto;
+  }
+}
+
+.cart-shipping-recalculate {
+  width: 100%;
+}

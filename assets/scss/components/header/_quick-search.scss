@@ -1,0 +1,252 @@
+// Quick Search
+
+.quick-search {
+  position: absolute;
+  top: rem(160); // header + search bar
+  right: 0;
+  left: 0;
+  display: none;
+  width: 100%;
+  padding: rem(25);
+  text-align: center;
+  background-color: $background-color;
+  border: 1px solid $border-color;
+  opacity: 0;
+  z-index: index($elements, search);
+
+  &.animating,
+  &.visible {
+    right: 0;
+    left: 0;
+    display: block;
+    height: auto;
+    width: 100%;
+  }
+
+  &.animating-in,
+  &.animating-out {
+    @include height-transition;
+    max-height: rem(550);
+    overflow: hidden;
+  }
+
+  &.visible {
+    opacity: 1;
+  }
+
+  @include breakpoint(tablet-up) {
+    top: rem(100); // header height
+  }
+
+  @include breakpoint(ms) {
+    padding: rem(5) $gutter-mobile;
+    border-top: 1px solid $border-color;
+    border-right: 0;
+    border-bottom: 0;
+    border-left: 0;
+  }
+}
+
+.quick-search-inner {
+  display: flex;
+  width: 100%;
+  padding: 0;
+
+  @include breakpoint(ms) {
+    display: block;
+    height: 100%;
+    flex-direction: column;
+  }
+}
+
+.quick-search-list-product {
+  display: flex;
+  justify-content: space-around;
+  flex-basis: 100%;
+  flex-wrap: wrap;
+
+  @include breakpoint(ms) {
+    display: block;
+    flex-direction: column;
+    flex-wrap: wrap;
+  }
+}
+
+.with-content-results {
+  flex-basis: 75%;
+}
+
+.products-quick-search-item {
+  flex-basis: 22%;
+  width: auto;
+  margin-bottom: $gutter-mobile;
+  text-align: left;
+
+  @include breakpoint(ms) {
+    display: flex;
+    align-items: center;
+    flex-basis: 100%;
+    width: 100%;
+    margin-bottom: 0;
+    padding: $gutter-half;
+    border-bottom: 1px solid $border-color;
+  }
+}
+
+.products-quick-search-item-image {
+  @include breakpoint(ms) {
+    flex: 1 0 rem(80);
+    width: auto;
+    max-width: rem(80);
+    min-height: rem(80);
+    margin-right: $gutter-half;
+    padding-bottom: 0 !important;
+  }
+}
+
+.quick-search .products-quick-search-item:not(.product-item-sold-out):hover .product-item-details {
+  @include breakpoint(ms) {
+    bottom: 0;
+
+    .button {
+      opacity: 0;
+    }
+  }
+}
+
+.quick-search-submit-container {
+  display: block;
+  width: 100%;
+  margin-top: $gutter-half;
+
+  @include breakpoint(ms) {
+    margin: $gutter 0;
+    text-align: left;
+  }
+}
+
+.quick-search-list-content-title {
+  font-size: rem(14);
+  text-transform: uppercase;
+  letter-spacing: em(0.9, 16);
+}
+
+.quick-search-list-content {
+  flex-basis: 100%;
+  text-align: left;
+
+  @include breakpoint(ms) {
+    padding: $gutter 0 0;
+  }
+}
+
+.quick-search-list-product + .quick-search-list-content {
+  flex-basis: 25%;
+  padding: $gutter;
+  border-left: 1px solid $border-color;
+
+  @include breakpoint(ms) {
+    padding: $gutter 0 0;
+    border: 0;
+  }
+}
+
+.quick-search-content-block {
+  max-height: rem(200);
+  padding-top: $gutter-half;
+  padding-bottom: $gutter-half;
+  overflow: hidden;
+  border-bottom: 1px solid $border-color;
+
+  &:last-of-type {
+    border-bottom: none;
+  }
+}
+
+.quick-search-content-title {
+  margin: 0 0 rem(5);
+  line-height: normal;
+
+  a {
+    @extend %heading-text-treatment;
+    font-size: rem(16);
+    letter-spacing: normal;
+    text-transform: none;
+    border-bottom: none;
+  }
+}
+
+.quick-search-content-summary {
+  margin: 0;
+}
+
+// Quick Search Overlay
+.quick-search-overlay {
+  @include custom-ease;
+  display: none;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  z-index: index($elements, search);
+  width: 100%;
+  max-width: 100%;
+  padding: 0;
+  background-color: rgba($heading-color, 0.9);
+
+  &.animating,
+  &.visible {
+    display: block;
+    opacity: 1;
+  }
+}
+
+.search-close {
+  @extend %remove-button-style;
+  position: absolute;
+  top: rem(12);
+  right: rem(12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  width: rem(22);
+  height: rem(22);
+  color: $body-color;
+  background-color: $border-color;
+  border-radius: 50%;
+  opacity: 0;
+  visibility: hidden;
+
+  .search-close-icon {
+    width: rem(8);
+    height: rem(8);
+    color: inherit;
+
+    @include breakpoint(m) {
+      position: relative;
+      top: rem(-2);
+    }
+  }
+
+  &.visible {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.15s $custom-ease-transition 0.15s;
+  }
+
+  @include breakpoint(m) {
+    display: block;
+  }
+
+  @include breakpoint(ms) {
+    top: $gutter;
+    right: $gutter;
+  }
+}
+
+.quick-search-no-results {
+  width: 100%;
+  text-align: center;
+}

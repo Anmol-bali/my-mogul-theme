@@ -1,0 +1,51 @@
+.form-field-quantity-control {
+  position: relative;
+  display: block;
+  margin-top: $gutter / 2;
+  margin-bottom: $local-gutter;
+  width: rem(135);
+
+  input[type=number]::-webkit-inner-spin-button,
+  input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0;
+  }
+
+  input[type=number] {
+    -moz-appearance: textfield;
+  }
+}
+
+.form-quantity-arrow-wrapper {
+  position: absolute;
+  right: rem(5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: rem(20);
+  height: rem(20);
+  color: $nav-color;
+  cursor: pointer;
+}
+
+.form-quantity-arrow-up-wrapper {
+  top: rem(2);
+  bottom: auto;
+}
+
+.form-quantity-arrow-down-wrapper {
+  top: auto;
+  bottom: rem(2);
+}
+
+.form-quantity-arrow {
+  width: rem(9);
+  height: rem(6);
+  fill: currentColor;
+
+  &.form-quantity-up {
+    transform: rotate(180deg);
+  }
+}

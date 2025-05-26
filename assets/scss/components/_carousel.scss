@@ -1,0 +1,203 @@
+// Carousel
+.homepage-carousel {
+  @include height-transition;
+  margin-bottom: rem(80);
+  opacity: 0;
+  overflow: visible;
+  clear: both;
+
+  @include breakpoint(m) {
+    position: relative;
+    margin-bottom: 0;
+  }
+}
+
+.carousel-viewport {
+  width: 100%;
+  height: 100%;
+
+  @include breakpoint(ms) {
+    position: absolute;
+  }
+}
+
+.flickity-viewport {
+  @include maintain-ratio(1.5 1);
+  @include height-transition;
+  background-size: cover;
+
+  .ratio-3-1 & {
+    @include maintain-ratio(3 1);
+  }
+
+  .ratio-16-9 & {
+    @include maintain-ratio(16 9);
+  }
+
+  @include breakpoint(xs) {
+    @include maintain-ratio;
+  }
+}
+
+.carousel-slide {
+  background-position: center top;
+  padding-bottom: 0;
+
+  @include maintain-ratio(1.5 1);
+  background-size: cover;
+
+  .ratio-3-1 & {
+    @include maintain-ratio(3 1);
+    background-position: center center;
+  }
+
+  .ratio-16-9 & {
+    @include maintain-ratio(16 9);
+    background-position: center center;
+  }
+
+  @include breakpoint(xs) {
+    @include maintain-ratio;
+    background-position: center center;
+  }
+}
+
+.carousel-mobile-image {
+  display: none;
+
+  @include breakpoint(s-up) {
+    display: none;
+  }
+}
+
+.carousel-slide-link {
+  @include coverer;
+  color: transparent;
+  border: none;
+}
+
+.carousel-slide-info {
+  width: rem(640);
+  text-align: center;
+  opacity: 0;
+  text-transform: none;
+
+  .button {
+    margin-top: $gutter;
+  }
+
+  @include breakpoint(l-up) {
+    @include centerer;
+  }
+
+  @include breakpoint(m) {
+    width: 100%;
+    padding-top: rem(70);
+    padding-bottom: rem(60);
+    right: 0;
+    left: 0;
+    margin: 0 auto;
+  }
+}
+
+.carousel-slide-heading {
+  @extend %heading-text-treatment;
+  margin-top: 0;
+  font-size: rem(32);
+  line-height: 1.38;
+  letter-spacing: normal;
+  text-align: center;
+
+  @include breakpoint(l-up) {
+    color: $carousel-text-color;
+    text-shadow: 0 rem(2) rem(24) rgba(0, 0, 0, 0.5);
+  }
+}
+
+.carousel-slide-subheading {
+  @extend %body-text-treatment;
+  line-height: 1.69;
+  letter-spacing: normal;
+  text-align: center;
+
+  @include breakpoint(l-up) {
+    color: $carousel-text-color;
+    text-shadow: 0 rem(2) rem(24) rgba(0, 0, 0, 0.5);
+  }
+}
+
+.carousel-slide-button {
+  @include basic-ease;
+  display: none;
+  position: absolute;
+  top: 50%;
+  width: rem(47);
+  height: rem(47);
+  bottom: inherit;
+  padding: 0;
+  z-index: index($elements, carousel-slide-button);
+  color: $background-color;
+  background-color: $accent-color;
+  border: 0;
+  outline: 0;
+  transform: translateY(-50%);
+
+  &:hover {
+    background-color: $heading-color;
+  }
+
+  .carousel-slide.is-selected & {
+    display: block;
+
+    @include breakpoint(m) {
+      display: none;
+    }
+  }
+
+  .carousel-slide-icon {
+    width: rem(21);
+    height: rem(13);
+    fill: currentColor;
+  }
+
+  &-previous {
+    left: 0;
+
+    .carousel-slide-icon {
+      transform: rotate(180deg);
+    }
+
+    @include breakpoint(ms) {
+      left: rem(40);
+    }
+  }
+
+  &-next {
+    right: 0;
+
+    @include breakpoint(ms) {
+      right: rem(40);
+    }
+  }
+}
+
+.flickity-page-dots {
+  @include breakpoint(l-up) {
+    display: none;
+  }
+
+  .dot {
+    width: rem(9);
+    height: rem(9);
+    margin: 0 rem(5);
+    background-color: $body-color;
+
+    &.is-selected {
+      background: $accent-color;
+    }
+  }
+
+  .dot:first-child:nth-last-child(1) {
+    display: none;
+  }
+}
