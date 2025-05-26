@@ -1,0 +1,62 @@
+.compare-widget {
+  position: fixed;
+  bottom: 0;
+  z-index: index($elements, compare-widget);
+  display: flex;
+  justify-content: flex-end;
+  visibility: hidden;
+
+  &.visible {
+    visibility: visible;
+  }
+
+  @include breakpoint(l) {
+    right: $gutter;
+  }
+
+  @include breakpoint(m) {
+    display: none;
+  }
+}
+
+.compare-title {
+  width: 100%;
+  font-family: $heading-font;
+  font-size: rem(26);
+  letter-spacing: 0;
+  text-transform: none;
+  color: $background-color;
+  background-color: $accent-color;
+  cursor: default;
+
+  .button + & {
+    margin-left: 0;
+  }
+}
+
+.compare-widget-button {
+  width: rem(45);
+  font-size: rem(26);
+  line-height: rem(26);
+  color: $accent-color;
+
+  .button + & {
+    margin-left: 0;
+  }
+
+  &.is-disabled {
+    cursor: not-allowed;
+  }
+}
+
+.compare-widget-arrow {
+  width: rem(15);
+  height: rem(10);
+  fill: currentColor;
+}
+
+.compare-widget-close {
+  width: rem(15);
+  height: rem(15);
+  fill: currentColor;
+}

@@ -1,0 +1,37 @@
+.currency-selector-wrapper {
+  @extend %nav-text-treatment;
+  display: flex;
+  align-items: center;
+  min-width: 0;
+  padding: {
+    top: 0;
+    right: 0;
+    bottom: 0;
+  }
+  border: none;
+
+  select {
+    left: rem(20);
+    background: none;
+    border: 0;
+    opacity: 0;
+  }
+
+  .form-selected-text {
+    padding-right: rem(6);
+  }
+
+  &::after {
+    display: block;
+    position: static;
+    margin-right: rem(1);
+    margin-bottom: rem(2);
+    transform-origin: left top;
+  }
+
+  @include breakpoint(ms) {
+    .main-header-tools & {
+      display: none;
+    }
+  }
+}

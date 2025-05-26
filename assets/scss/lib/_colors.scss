@@ -1,0 +1,42 @@
+$white: #fff;
+$black: #000;
+
+// User Colors
+$accent-color: stencilColor("accent-color");
+$body-color: stencilColor("body-color");
+$heading-color: stencilColor("heading-color");
+$background-color: stencilColor("background-color");
+$carousel-text-color: stencilColor("carousel-text-color");
+$footer-text-color: stencilColor("footer-text-color");
+$footer-background-color: stencilColor("footer-background-color");
+
+$nav-color: contrast($heading-color, 27%);
+$border-color: contrast($body-color, 70%);
+$border-light-color: contrast($body-color, 85%);
+
+$promo-color: stencilColor('promo-color');
+$promo-background-color: stencilColor('promo-background-color');
+
+// Buttons
+$primary-button-color: $background-color;
+$primary-button-background-color: $accent-color;
+$primary-button-color-hover: $primary-button-color;
+$primary-button-background-color-hover: $heading-color;
+
+$secondary-button-color: $accent-color;
+$secondary-button-background-color: $background-color;
+$secondary-button-color-hover: $background-color;
+$secondary-button-background-color-hover: $accent-color;
+
+// Forms
+$input-color: $nav-color;
+$input-background-color: $background-color;
+$input-border-color: $border-color;
+
+// Alerts
+$alert-success: #76aa62;
+$alert-error: #f14d32;
+$alert-info: #a6a6a6;
+
+// Accounts
+$account-card-background-color: $background-color;

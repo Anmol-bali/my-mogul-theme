@@ -1,0 +1,19 @@
+//scss-lint:disable StringQuotes, ColorVariable
+
+// COLOR CONTRAST
+@function shade($color, $percent) {
+  @return mix(#000, $color, $percent);
+}
+
+@function tint($color, $percent) {
+  @return mix(#fff, $color, $percent);
+}
+
+// Showing a preference to lighten
+@function contrast($color, $percent: 6%) {
+  @if (lightness($color) > 70) {
+    @return shade($color, $percent);
+  } @else {
+    @return tint($color, $percent);
+  }
+}

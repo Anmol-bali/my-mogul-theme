@@ -1,0 +1,262 @@
+.form-field-title {
+  font-size: rem(14);
+  color: lighten($nav-color, 30%);
+}
+
+.form-field-options,
+.form-field-customizations {
+  margin-bottom: $gutter;
+}
+
+// Pick list
+.product-picklist-radio {
+  width: 0;
+  height: 0;
+  opacity: 0;
+}
+
+.product-picklist-item {
+  position: relative;
+  display: block;
+}
+
+.product-picklist-radio {
+  position: absolute;
+  top: 50%;
+  margin-top: -7px;
+  line-height: 14px;
+}
+
+.product-picklist-item-body {
+  position: relative;
+  display: table;
+  width: 100%;
+  min-height: rem(60);
+  padding: rem(6) rem(8) rem(6) rem(50);
+  border: 1px solid transparent;
+  cursor: pointer;
+
+  &:hover {
+    z-index: 1;
+  }
+
+  [type="radio"]:checked ~ &,
+  [type="radio"]:hover ~ & {
+    z-index: 2;
+    color: $accent-color;
+  }
+
+  [type="radio"]:checked ~ & {
+    border-color: $accent-color;
+  }
+}
+
+.product-picklist-image-wrap {
+  position: absolute;
+  top: 8px;
+  bottom: 8px;
+  left: 0;
+  width: 40px;
+  overflow: hidden;
+
+  [type="radio"]:checked ~ &,
+  [type="radio"]:hover ~ & {
+    border: 1px solid $accent-color;
+  }
+}
+
+.product-picklist-image {
+}
+
+.product-picklist-label-text {
+  display: table-cell;
+  line-height: 1.4;
+  color: inherit;
+  vertical-align: middle;
+}
+
+// Swatch
+
+.swatch-value {
+  font-weight: 600;
+  color: $nav-color;
+}
+
+.form-field-swatch {
+  .form-field-control {
+    @extend %clearfix;
+    display: block;
+    margin-top: $gutter / 2;
+  }
+
+  .form-label-text {
+    display: none;
+  }
+
+  .swatch-pattern-expanded {
+    position: absolute;
+    bottom: calc(100% + 10px);
+    left: 50%;
+    padding: 0.25rem;
+    border: 1px solid $border-color;
+    background-color: $background-color;
+    transform: translateX(-50%) scale(0);
+    transform-origin: 50% 100%;
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.1s ease;
+
+    img {
+      display: block;
+      width: rem(200);
+      max-width: none;
+    }
+  }
+
+  .swatch-wrap {
+    position: relative;
+    display: inline-block;
+
+    .form-label-text {
+      @extend .visually-hidden;
+    }
+
+    &:hover {
+      .swatch-pattern-expanded {
+        transform: translateX(-50%) scale(1);
+        visibility: visible;
+        opacity: 1;
+      }
+    }
+  }
+
+  // The block that the swatch sits within.
+  .swatch {
+    position: relative;
+    display: block;
+    width: rem(60);
+    height: rem(45);
+    margin-right: rem(11);
+    border: 1px solid $input-border-color;
+  }
+
+  // Blocks displaying the pattern / colors
+  .swatch-color {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    &.secondary {
+      left: 50%;
+    }
+
+    &.tertiary {
+      top: 50%;
+      left: 50%;
+    }
+  }
+
+  .swatch-radio {
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    opacity: 0;
+
+    // Selected Swatch Item
+    &:checked + .swatch {
+      border-color: $accent-color;
+      box-shadow: inset 0 0 0 2px rgba($background-color, 1);
+
+      .swatch-color {
+        top: 3px;
+        right: 3px;
+        bottom: 3px;
+        left: 3px;
+
+        &.secondary {
+          left: 50%;
+        }
+
+        &.tertiary {
+          left: 50%;
+          top: 50%;
+        }
+      }
+    }
+  }
+}
+
+// rectangles
+.form-field-rectangle {
+  @extend %clearfix;
+
+  .rectangle {
+    position: relative;
+    display: inline-block;
+    float: left;
+    margin: 0 5px 5px 0;
+  }
+
+  .rectangle-text {
+    @include basic-ease;
+    display: block;
+    min-width: rem(60);
+    height: rem(45);
+    padding: rem(8) rem(15);
+    font-size: rem(12);
+    line-height: 2.17;
+    text-align: center;
+    border: {
+      style: solid;
+      width: 1px;
+      color: $border-color;
+    }
+    cursor: pointer;
+  }
+
+  .form-input {
+    width: 0;
+    height: 0;
+    opacity: 0;
+
+    // Selected Item
+    &:checked + .rectangle-text {
+      color: $accent-color;
+      background-color: $background-color;
+      border-color: $accent-color;
+    }
+
+    &:hover + .rectangle-text {
+      color: $background-color;
+      background-color: $accent-color;
+      border-color: $accent-color;
+    }
+  }
+}
+
+.product-event-bounds {
+  display: block;
+  margin-top: rem(5);
+  font-size: rem(14);
+  color: lighten($nav-color, 40%);
+}
+
+.product-alert .alert-success {
+  @extend %nav-text-treatment;
+  width: 100%;
+  margin-bottom: $gutter;
+  padding: $gutter / 3 $gutter;
+  text-align: center;
+  color: $heading-color;
+  background-color: $border-light-color;
+}
+
+.option-unavailable {
+  opacity: 0.5;
+
+  .form-label-text { text-decoration: line-through; }
+}

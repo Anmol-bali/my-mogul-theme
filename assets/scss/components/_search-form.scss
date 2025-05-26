@@ -1,0 +1,48 @@
+.search-form {
+  position: relative;
+  padding-left: 0;
+  z-index: index($elements, search);
+
+  .main-header-tools & {
+    flex-grow: 1;
+
+    @include breakpoint(ms) {
+      position: absolute;
+      top: rem(81);
+      left: 0;
+      width: 100%;
+      padding: rem(18) $gutter-mobile;
+      background-color: $background-color;
+    }
+  }
+}
+
+.search-submit {
+  @extend %remove-button-style;
+  position: absolute;
+  top: rem(14);
+  left: rem(13);
+  bottom: rem(15);
+  width: rem(16);
+  height: rem(16);
+
+  @include breakpoint(ms) {
+    top: rem(33);
+    left: rem(33);
+  }
+}
+
+.search-icon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  width: rem(16);
+  height: rem(16);
+  fill: $input-color;
+}
+
+.search-input {
+  width: 100%;
+  padding-left: rem(40);
+}

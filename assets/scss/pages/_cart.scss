@@ -1,0 +1,419 @@
+$local-gutter: rem(50);
+
+.cart-title {
+  margin: 0 auto;
+  padding-top: $gutter;
+  padding-bottom: $local-gutter;
+  font-size: rem(30);
+  text-align: center;
+  border-bottom: 1px solid $border-color;
+}
+
+/*
+ * Cart Contents
+ */
+
+.cart-item-headers {
+  display: flex;
+  padding-top: rem(75);
+
+  @include breakpoint(ms) {
+    display: none;
+  }
+}
+
+.cart-item-header {
+  padding-right: $gutter-mobile;
+  padding-bottom: $gutter-mobile;
+  font-size: rem(16);
+  font-weight: 700;
+  letter-spacing: em(1, 16);
+  line-height: normal;
+  text-transform: uppercase;
+  color: $heading-color;
+  border-bottom: 1px solid $border-color;
+}
+
+.cart-item-header {
+  padding-right: $gutter-mobile;
+}
+
+.cart-item-price-column,
+.cart-item-total-column,
+.cart-item-remove-column {
+  display: flex;
+  align-items: center;
+}
+
+.cart-item-spacer-column {
+  flex-basis: 35%;
+}
+
+.cart-item-column {
+  padding-right: $gutter-mobile;
+}
+
+.cart-item-image-column {
+  flex-basis: 15%;
+
+  @include breakpoint(s) {
+    flex-basis: 40%;
+    flex-shrink: 0;
+  }
+
+  @include breakpoint(xs) {
+    margin-bottom: $gutter-mobile;
+    padding-right: 0;
+    flex-basis: 100%;
+  }
+}
+
+.cart-item-details-column {
+  display: flex;
+  flex-basis: 85%;
+
+  @include breakpoint(s) {
+    display: block;
+
+    .cart-item-gift-wrapping,
+    .cart-item-quantity-column,
+    .cart-item-total-column {
+      margin-bottom: $gutter-mobile;
+    }
+  }
+}
+
+.cart-item-price-column {
+  flex-basis: 15%;
+
+  @include breakpoint(ms) {
+    display: none;
+  }
+}
+
+.cart-item-price-column,
+.cart-item-total-column {
+  flex-direction: column;
+  justify-content: center;
+
+  @include breakpoint(ms) {
+    justify-content: flex-start;
+    flex-direction: row;
+  }
+}
+
+.cart-item-quantity-column {
+  display: flex;
+  flex-basis: 20%;
+  align-items: center;
+
+  .form-field-title {
+    display: none;
+  }
+
+  .form-field-quantity-control {
+    margin-bottom: 0;
+  }
+
+  @include breakpoint(tablet) {
+    align-items: flex-start;
+    flex-direction: column;
+
+    .form-field-quantity-control {
+      margin-bottom: $gutter-mobile;
+    }
+  }
+}
+
+.cart-item-total-column {
+  flex-basis: 15%;
+
+  @include breakpoint(tablet) {
+    flex-basis: 30%;
+    justify-content: flex-end;
+    order: 4;
+  }
+}
+
+.cart-item-remove-column {
+  flex-basis: 15%;
+  padding-right: 0;
+
+  @include breakpoint(tablet-up) {
+    flex-direction: row-reverse;
+  }
+
+  @include breakpoint(tablet) {
+    display: none;
+  }
+}
+
+.cart-item {
+  display: flex;
+  padding-top: rem(45);
+  padding-bottom: rem(45);
+  border-bottom: 1px solid $border-color;
+
+  @include breakpoint(xs) {
+    flex-direction: column;
+  }
+}
+
+.cart-item-image {
+  display: block;
+  flex-shrink: 0;
+  width: rem(90);
+  height: rem(100);
+  margin-right: $gutter-mobile;
+  border-bottom: 0;
+
+  @include breakpoint(s) {
+    width: 100%;
+    height: 100%;
+  }
+
+  @include breakpoint(xs) {
+    height: 100vw;
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.cart-item-details {
+  display: flex;
+  flex-basis: 35%;
+  flex-direction: column;
+  justify-content: center;
+
+  @include breakpoint(ms) {
+    flex-basis: 50%;
+  }
+
+  dt {
+    color: $nav-color;
+  }
+
+  .cart-item-gift-wrapping,
+  .cart-item-sku,
+  .cart-item-options,
+  dt,
+  dd {
+    margin: 0;
+    font-size: rem(13);
+  }
+}
+
+.cart-item-brand {
+  font-size: rem(16);
+  letter-spacing: em(1, 16);
+  color: $nav-color;
+}
+
+.cart-item-title {
+  @extend %heading-text-treatment;
+  font-size: rem(16);
+
+  a {
+    font-size: rem(16);
+    letter-spacing: normal;
+    text-transform: none;
+    color: $heading-color;
+    border-bottom: none;
+  }
+}
+
+.cart-remove-link-tablet {
+  display: none;
+
+  @include breakpoint(tablet) {
+    display: block;
+  }
+}
+
+.cart-item-price-discounted {
+  text-decoration: line-through;
+
+  @include breakpoint(ms) {
+    margin-right: rem(5);
+  }
+}
+
+.cart-item-discount {
+  color: $accent-color;
+}
+
+/*
+ * Totals
+ */
+
+.cart-totals {
+  padding-top: $local-gutter;
+  padding-bottom: $local-gutter;
+
+  @include breakpoint(tablet-up) {
+    float: right;
+    max-width: rem(500);
+  }
+}
+
+.cart-subtotals {
+  padding-bottom: rem(10);
+  border-bottom: 1px solid $border-color;
+}
+
+.cart-subtotal-line {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-bottom: rem(20);
+}
+
+.cart-subtotal-label {
+  margin-right: rem(20);
+  font-size: rem(14);
+}
+
+.cart-subtotal-content {
+  font-size: rem(23);
+  font-weight: 700;
+  color: $heading-color;
+}
+
+.cart-coupon-codes {
+  padding-top: rem(10);
+}
+
+.form-gift-certificate,
+.form-coupon-code {
+  position: relative;
+  margin-top: rem(20);
+  margin-bottom: rem(20);
+
+  @include breakpoint(s-up) {
+    display: flex;
+  }
+}
+
+.button-coupon-code,
+.button-gift-certificate {
+  @include breakpoint(s-up) {
+    height: rem(45);
+    margin-left: rem(20);
+
+    .cart-button-arrow {
+      display: none;
+    }
+  }
+
+  @include breakpoint(ms) {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: rem(45);
+    width: rem(45);
+    color: $background-color;
+    background-color: $accent-color;
+
+    .form-input:active ~ &,
+    .form-input:focus ~ & {
+      background-color: $nav-color;
+      border-color: $nav-color;
+    }
+
+    .cart-button-text {
+      display: none;
+    }
+
+    .cart-button-arrow {
+      width: rem(16);
+      height: rem(10);
+      fill: currentColor;
+    }
+  }
+}
+
+.cart-grand-total {
+  margin: $gutter auto;
+  text-align: center;
+
+  @include breakpoint(s-up) {
+    float: left;
+  }
+}
+
+.cart-total-label {
+  margin-right: $gutter-mobile;
+}
+
+.cart-actions-row {
+  text-align: center;
+
+  @include breakpoint(s-up) {
+    float: right;
+    width: 50%;
+    margin-top: $gutter-mobile;
+    text-align: right;
+  }
+}
+
+.multiple-checkout {
+  text-align: center;
+  margin-top: $gutter-half;
+
+  .cart-actions-row & {
+    @include breakpoint(s-up) {
+      text-align: right;
+    }
+  }
+}
+
+.additional-checkout-buttons {
+  clear: both;
+  text-align: center;
+  float: right;
+  width: 200px;
+
+  @include breakpoint(s) {
+    float: none;
+    margin: $gutter auto 0;
+  }
+}
+
+/*
+ * Gift Wrapping
+ */
+
+.giftwrap-modal {
+  .modal-content {
+    max-width: rem(600);
+  }
+
+  .section-title {
+    padding-bottom: $gutter;
+    border-bottom: 1px solid $border-color;
+  }
+
+  .form-field-title {
+    margin-right: $gutter-mobile;
+  }
+
+  .form-select-wrapper {
+    display: inline-block;
+  }
+
+  .form-field-select {
+    padding-top: $gutter-mobile;
+    padding-bottom: $gutter-mobile;
+  }
+
+  textarea {
+    height: auto;
+  }
+
+  .form-actions {
+    margin-top: $gutter;
+  }
+}

@@ -1,0 +1,52 @@
+$primary-font: stencilFontFamily('regular-font');
+$heading-font: stencilFontFamily('heading-font');
+$heading_style: stencilString('heading_style');
+
+%heading-text-treatment {
+  font-family: $heading-font;
+  font-weight: 700;
+  color: $heading-color;
+  text-transform: $heading_style;
+}
+
+%input-text-treatment {
+  font-family: $primary-font;
+  font-size: rem(12);
+  font-weight: 400;
+  line-height: 2.17;
+  letter-spacing: em(1.5, 12);
+  color: $input-color;
+}
+
+%nav-text-treatment {
+  @include basic-ease;
+  font-family: $primary-font;
+  font-size: rem(14);
+  font-weight: 700;
+  letter-spacing: em(1.5, 14);
+  color: $nav-color;
+  border: none;
+  text-transform: uppercase;
+
+  &:hover {
+    color: $accent-color;
+  }
+}
+
+%body-text-treatment {
+  font-family: $primary-font;
+  font-size: rem(16);
+  line-height: 1.62;
+  color: $body-color;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.section-title,
+.page-title {
+  @extend %heading-text-treatment;
+}

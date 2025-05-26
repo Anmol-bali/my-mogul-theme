@@ -1,0 +1,55 @@
+.page-container {
+  margin: 0 auto;
+  padding: 0 rem(20) $gutter-double;
+
+  @include breakpoint(l-up) {
+    max-width: rem(1200);
+  }
+
+  @include breakpoint(m) {
+    padding-bottom: $gutter;
+  }
+}
+
+.page-narrow {
+  @include breakpoint(l-up) {
+    max-width: rem(850);
+  }
+}
+
+.page-header {
+  margin-bottom: $gutter-double;
+  text-align: center;
+
+  @include breakpoint(m) {
+    margin: rem(45) 0;
+  }
+
+  @include breakpoint(s) {
+    margin: $gutter 0;
+  }
+}
+
+.page-heading {
+  margin-top: 0;
+}
+
+.page-form {
+
+  .form-field {
+    margin-top: $gutter-half;
+
+    .form-field-title {
+      color: $body-color;
+      opacity: 0.6;
+    }
+
+    textarea {
+      height: auto;
+    }
+  }
+
+  .form-actions {
+    margin-top: $gutter-mobile;
+  }
+}

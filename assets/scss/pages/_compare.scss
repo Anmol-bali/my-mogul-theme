@@ -1,0 +1,97 @@
+.compare-page {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+  &:after {
+    flex: auto;
+    content: '';
+  }
+
+  &.two-items {
+    .compare-item {
+      width: 50%;
+
+      @include breakpoint(xs) {
+        width: 100%;
+        padding: 0;
+      }
+    }
+  }
+
+  &.three-items {
+    .compare-item {
+      width: 33.33%;
+
+      @include breakpoint(s) {
+        width: 100%;
+        padding: 0;
+      }
+    }
+  }
+
+  @include breakpoint(s) {
+    margin-top: $gutter-double;
+  }
+}
+
+.compare-item {
+  width: 25%;
+  padding: 0 rem(10);
+  margin-bottom: 0;
+  word-wrap: break-word;
+
+  &:first-of-type {
+    padding-left: 0;
+  }
+
+  &:last-of-type {
+    padding-right: 0;
+  }
+
+  @include breakpoint(s) {
+    margin-bottom: $gutter;
+    width: 50%;
+
+    &:nth-of-type(2) {
+      padding-right: 0;
+    }
+
+    &:nth-of-type(3) {
+      padding-left: 0;
+    }
+  }
+}
+
+.compare-item-remove {
+  display: inline-block;
+  margin-top: $gutter;
+}
+
+.compare-item-footer-title {
+  width: 100%;
+  margin-bottom: $gutter-mobile;
+  font-family: $primary-font;
+  font-size: rem(16);
+  letter-spacing: em(1, 16);
+  text-transform: uppercase;
+}
+
+.compare-item-footer-section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-top: $gutter-double;
+  padding-top: $gutter-double;
+  border-top: 1px solid $border-color;
+
+  &:after {
+    flex: auto;
+    content: '';
+  }
+
+  @include breakpoint(s) {
+    margin-top: 0;
+    padding-top: $gutter;
+  }
+}

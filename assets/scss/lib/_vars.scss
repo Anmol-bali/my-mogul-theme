@@ -1,0 +1,10 @@
+$gutter: rem(30);
+$gutter-half: rem(15);
+$gutter-mobile: rem(20);
+$gutter-double: $gutter * 2;
+
+$custom-ease-transition: cubic-bezier(0.3, 0, 0, 1);
+
+// Z-index from http://www.smashingmagazine.com/2014/06/sassy-z-index-management-for-complex-layouts/
+
+$elements: product-tag, footer, compare-widget, carousel-slide-button, site-alerts, search, header, minicart, sidebar;

@@ -1,0 +1,18 @@
+.site-wrap {
+  display: flex;
+  padding: 0;
+
+  @include breakpoint(ms) {
+    display: block;
+    padding-top: rem(63); // mobile search bar
+  }
+}
+
+.page-wrap {
+  padding: $gutter;
+  flex: 1;
+
+  @include breakpoint(ms) {
+    padding: $gutter-mobile;
+  }
+}

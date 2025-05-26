@@ -1,0 +1,64 @@
+.modal-leave-review {
+  max-width: rem(800);
+
+  .form-label-text {
+    @extend .form-field-title;
+    display: block;
+    margin-bottom: rem(10);
+  }
+
+  .form-field-control > input {
+    margin-top: rem(5);
+  }
+
+  .form-field-title {
+    display: block;
+    margin-top: $gutter-half;
+  }
+
+  .form-field-control > #textarea-rating-comment {
+    height: auto;
+  }
+
+  .g-recaptcha {
+    margin-top: $gutter;
+
+    @include breakpoint(xs) {
+      margin-bottom: -$gutter-half;
+      transform: scale(0.66);
+      transform-origin: 0 0;
+    }
+  }
+}
+
+.modal-content {
+  position: static;
+  max-width: rem(500);
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.modal-close {
+  @extend %remove-button-style;
+  @extend %nav-text-treatment;
+  display: flex;
+  align-items: center;
+  padding: rem(25) rem(25) 0;
+  font-size: rem(14);
+  color: $heading-color;
+}
+
+.review-close-icon {
+  width: rem(15);
+  height: rem(15);
+  margin-left: rem(10);
+  color: currentColor;
+}
+
+.review-form-heading {
+  @extend %heading-text-treatment;
+  margin-bottom: $gutter;
+  font-size: rem(26);
+  line-height: 1.54;
+  text-align: center;
+}

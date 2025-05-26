@@ -1,0 +1,139 @@
+/* Account Overrides */
+
+.account-container {
+  margin: 0 auto;
+  padding: 0 20px $gutter;
+
+  @include breakpoint(l-up) {
+    max-width: rem(1200);
+  }
+}
+
+.account-wrapper {
+  padding-top: $gutter;
+  padding-bottom: $gutter;
+
+  .form-input {
+    height: 100%;
+  }
+}
+
+.account-heading {
+  @extend %heading-text-treatment;
+  display: block;
+  margin: 0 0 $gutter;
+}
+
+.account-sub-heading {
+  @extend %heading-text-treatment;
+}
+
+.account-button-primary {
+  width: auto;
+  color: $primary-button-color;
+  background-color: $primary-button-background-color;
+
+  &:hover {
+    color: $primary-button-color-hover;
+    background-color: $primary-button-background-color-hover;
+  }
+}
+
+.account-login-form,
+.account-forgot-form,
+.account-create-form {
+  .form-field-title {
+    color: $body-color;
+  }
+}
+
+.account-forgot-form {
+  .form-inline-message {
+    position: absolute;
+  }
+}
+
+.account-create-form,
+.account-content {
+  .form-field-control,
+  .form-select-wrapper {
+    display: block;
+  }
+}
+
+.account-nav-item.is-active {
+  color: $accent-color;
+  border-color: $accent-color;
+}
+
+.account-page-new-password .account-content {
+  margin-right: 0;
+  margin-left: 0;
+
+  .new-password-requirements {
+    text-align: left;
+  }
+}
+
+.account-item-checkbox {
+  display: table-cell;
+  min-width: 30px;
+  margin-bottom: 0;
+  vertical-align: middle;
+}
+
+.account-item-link {
+  z-index: 1;
+  border: none;
+}
+
+.account-item-thumbnail {
+  a {
+    border: none;
+  }
+}
+
+.account-tool {
+  z-index: 1;
+}
+
+// Payment Methods Overrides
+
+.payment-method {
+  @include breakpoint(l) {
+    width: 100%;
+  }
+}
+
+[data-payment-method-form],
+[data-address-form] {
+  .button {
+    width: auto;
+  }
+
+  .button:not(.button-primary) {
+    @extend .button-secondary;
+  }
+
+  .form-input {
+    height: 45px;
+  }
+
+  .payment-method-form-inputs {
+    .form-field-control {
+      width: 100%;
+    }
+  }
+
+  .payment-method-form-inputs-icon {
+    top: 38px !important; // Override top position in core
+  }
+}
+
+.account-button-secondary {
+  @extend .button-secondary;
+}
+
+.payment-method-title {
+  color: inherit;
+}

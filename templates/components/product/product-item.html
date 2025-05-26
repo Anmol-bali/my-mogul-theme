@@ -1,0 +1,160 @@
+{{!
+  Product listing item
+
+  @param default_image
+         The image to use if the product has no image assigned.
+}}
+
+<article
+  class="
+    product-item
+    {{prefix}}-item
+    {{#if out_of_stock_message}}product-item-sold-out{{/if}}
+  "
+  data-product-item
+  {{#if data_tag_enabled}}
+    data-event-type="{{event}}"
+    data-entity-id="{{id}}"
+    data-position="{{position}}"
+    data-name="{{name}}"
+    data-product-category="{{#each category}}{{#if @last}}{{this}}{{else}}{{this}}, {{/if}}{{/each}}"
+    data-product-brand="{{brand.name}}"
+    data-product-price="{{#if price.with_tax}}{{price.with_tax.value}}{{else}}{{price.without_tax.value}}{{/if}}"
+  {{/if}}
+>
+  {{#if out_of_stock_message}}
+    {{#if prefix '!==' 'compare'}}
+      <div class="product-item-tag {{prefix}}-item-tag tag-sold-out">
+        {{out_of_stock_message}}
+      </div>
+    {{/if}}
+  {{else}}
+    {{#if settings.sale-badges}}
+      {{#or price.non_sale_price_with_tax price.non_sale_price_without_tax}}
+        <div class="product-item-tag {{prefix}}-item-tag tag-sale">
+          {{lang 'core.product.sale'}}
+        </div>
+      {{/or}}
+    {{/if}}
+  {{/if}}
+
+  <div
+    class="
+      product-item-image
+      {{prefix}}-item-image
+      aspect-{{settings.grid_aspect_ratio}}
+    "
+  >
+    <a
+      href="{{url}}"
+      title="{{name}}"
+    >
+      {{> components/common/responsive-image
+        image=image
+        fit=settings.grid_image_crop
+        fallback_size=settings.medium
+        lazyload=settings.lazyload_mode
+        default_image=settings.default_image
+      }}
+    </a>
+  </div>
+
+  <div class="product-item-details">
+    {{#if prefix '===' 'compare'}}
+      {{#if rating}}
+        {{> components/reviews/ratings rating=rating}}
+      {{/if}}
+    {{/if}}
+
+    {{#if show_compare}}
+      <label class="product-item-compare {{prefix}}-item-compare">
+        <input
+          type="checkbox"
+          class="form-input form-radio"
+          data-compare-checkbox
+          data-compare-id="{{id}}"
+          data-compare-title="{{name}}"
+          data-compare-url="{{url}}"
+          data-compare-thumbnail="{{getImage image 'medium' (cdn settings.default_image)}}"
+        >
+        <span class="form-label-text">{{lang 'core.product.compare'}}</span>
+      </label>
+    {{/if}}
+
+    {{#if show_rating}}
+      {{> components/reviews/ratings rating=rating}}
+    {{/if}}
+
+    <h1
+      class="
+        product-item-title
+        {{prefix}}-item-title
+        {{#if show_rating}}
+          has-rating
+        {{/if}}
+      "
+    >
+      <a href="{{url}}">{{name}}</a>
+    </h1>
+
+    <div class="product-item-price {{prefix}}-item-price">
+      {{> core/products/price
+        price_range_display=settings.price_range_display
+        retail_price_label=settings.retail-price-label
+        non_sale_price_label=settings.non-sale-price-label
+        sale_price_label=settings.sale-price-label
+        price_label=settings.price-label
+      }}
+    </div>
+
+    {{#if show_cart_action}}
+      {{#if has_options}}
+        <a
+          href="{{url}}"
+          class="button button-primary button-cart-action"
+          data-product-id="{{id}}"
+        >
+          {{lang 'product.choose_options'}}
+        </a>
+      {{/if}}
+      {{#if pre_order}}
+        <a
+          href="{{url}}"
+          class="button button-primary button-cart-action"
+          {{#if settings.data_tag_enabled}}
+            data-event-type="product-click"
+          {{/if}}
+        >
+          {{lang 'product.pre_order'}}
+        </a>
+      {{/if}}
+      {{#if add_to_cart_url}}
+        <a
+          href="{{add_to_cart_url}}"
+          class="button button-primary button-cart-action"
+          {{#if settings.data_tag_enabled}}
+            data-event-type="product-click"
+          {{/if}}
+        >
+          {{lang 'product.add_to_cart'}}
+        </a>
+      {{/if}}
+    {{/if}}
+
+    {{#if settings.quick_view}}
+      <button
+        class="button button-secondary button-quick-view"
+        data-quick-view
+        data-product-id="{{id}}"
+      >
+        {{lang 'product.quick_view'}}
+      </button>
+    {{/if}}
+  </div>
+
+  {{#if prefix '===' 'compare'}}
+    <a href="{{remove_url}}" class="compare-item-remove">
+      {{lang 'compare.remove'}}
+    </a>
+  {{/if}}
+</article>

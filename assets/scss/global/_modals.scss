@@ -1,0 +1,54 @@
+.modal-overlay {
+  background-color: rgba($heading-color, 0.9);
+}
+
+.modal {
+  max-width: 1060px;
+  max-height: 90%;
+  padding: $gutter * 2;
+  overflow-y: scroll;
+  background-color: $background-color;
+}
+
+.modal-content {
+  position: relative;
+
+  .modal-close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: rem(16);
+    line-height: 1;
+  }
+}
+
+.modal-close {
+  @extend %remove-button-style;
+  display: flex;
+  align-items: center;
+  float: right;
+}
+
+.modal-close-text {
+  @extend %nav-text-treatment;
+  margin-right: rem(10);
+
+  .modal-close:hover & {
+    color: $accent-color;
+  }
+}
+
+.modal-close-icon {
+  @include basic-ease;
+  width: rem(15);
+  height: rem(15);
+  fill: $nav-color;
+
+  .modal-close:hover & {
+    fill: $accent-color;
+  }
+}
+
+.modal-wrapper.loaded .loading.visible {
+  display: none;
+}

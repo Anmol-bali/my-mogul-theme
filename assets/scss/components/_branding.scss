@@ -1,0 +1,64 @@
+.branding {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: rem(100);
+  margin-right: rem(40);
+  overflow: hidden;
+
+  @include breakpoint(tablet-up) {
+    flex: 0 0 rem(230);
+  }
+
+  @include breakpoint(ms) {
+    height: rem(80);
+    margin-right: 0;
+    text-align: center;
+  }
+}
+
+.branding-logo {
+  line-height: 0;
+  border-bottom: none;
+}
+
+.branding-text {
+  max-width: rem(350);
+  margin: 0;
+  padding: $gutter-mobile 0;
+
+  @include breakpoint(ms) {
+    max-width: 100%;
+  }
+
+  @include breakpoint(xs) {
+    padding: $gutter-mobile rem(5);
+  }
+}
+
+.branding-text a {
+  @extend %heading-text-treatment;
+  display: block;
+  font-size: rem(18);
+  letter-spacing: 0;
+  border: 0;
+
+  &:hover {
+    border-bottom-color: transparent;
+  }
+
+  @include breakpoint(ms) {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+}
+
+.branding-logo-image {
+  max-width: rem(230);
+  max-height: rem(100);
+
+  @include breakpoint(ms) {
+    max-height: rem(80);
+  }
+}

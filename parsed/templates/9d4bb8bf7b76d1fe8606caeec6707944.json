@@ -1,0 +1,3 @@
+{
+  "components/common/banners": "{{#if banners}}\n  {{#if settings.data_tag_enabled}}\n    {{#each (limit banners 1)}}\n      <div\n        class=\"banner {{class}} rte\"\n        data-event-type=\"promotion\"\n        data-entity-id=\"{{this.id}}\"\n        data-name=\"{{this.banner-name}}\"\n        data-position=\"{{this.location}}\"\n        data-name=\"{{this.banner-name}}\"\n      >\n        <div data-event-type=\"promotion-click\">\n          {{{this.content}}}\n        </div>\n    </div>\n    {{/each}}\n  {{else}}\n    {{#each (limit banners 1)}}\n      <div class=\"banner {{class}} rte\">\n        {{{this.content}}}\n      </div>\n    {{/each}}\n  {{/if}}\n{{/if}}\n"
+}
